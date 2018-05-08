@@ -10,7 +10,7 @@ I want to see a list of my bookmarks
 
 As a user,
 So I can go back to a page later
-I want to save it in\ my bookmarks
+I want to save it in my bookmarks
 
 As a user,
 So I can remove the pages I no longer need,
