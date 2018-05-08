@@ -1,3 +1,3 @@
 ##Bookmark Manager
 
-test
+A web app that stores web bookmarks in a database
