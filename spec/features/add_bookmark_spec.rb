@@ -24,8 +24,8 @@ feature 'Adding a bookmark' do
   xscenario "Doesn't submit if URL invalid" do
     visit '/bookmarks'
     click_on 'Add bookmark'
-    fill_in 'url_field', with: 'www.didntstartwithhttp.com'
+    fill_in 'url_field', with: 'ww.didntstartwithhttp.com'
     click_button 'Submit bookmark'
-    expect(page).to have_content('Add url')
+    expect(page).to have_content('Add urldfs')
   end
 end

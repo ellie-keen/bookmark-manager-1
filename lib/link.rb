@@ -1,4 +1,5 @@
 require 'pg'
+require 'uri'
 
 class Link
   if ENV['RACK_ENV'] == 'test'
@@ -23,6 +24,7 @@ class Link
   private
 
   def self.valid_link_check(link)
-    raise "URL didn't start with 'http'" if link[0...4] != 'http'
+    uri = URI.parse(link)
+    raise 'URL not valid' if uri.scheme != 'http'
   end
 end

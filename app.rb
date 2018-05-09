@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/link.rb'
 
 class BookmarkManager < Sinatra::Base
