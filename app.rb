@@ -2,9 +2,21 @@ require 'sinatra/base'
 require './lib/link.rb'
 
 class BookmarkManager < Sinatra::Base
-  get '/bookmarks' do
+  before do
     @bookmarks = Link.all
+  end
+
+  get '/bookmarks' do
     erb :index
+  end
+
+  get '/add_bookmark' do
+    erb :add_bookmark
+  end
+
+  post '/add_to_database' do
+    Link.add(params[:url_field])
+    redirect '/bookmarks'
   end
 
   run! if app_file == $0
