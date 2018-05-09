@@ -19,5 +19,8 @@ describe Link do
       Link.add(bbc_link)
       expect(all_links).to include(bbc_link)
     end
+    it "shouldn't add if bookmark isn't valid" do
+      expect { Link.add('www.didnthavehttp.com') }.to raise_error(RuntimeError)
+    end
   end
 end

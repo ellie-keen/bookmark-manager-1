@@ -1,4 +1,9 @@
 feature 'viewing bookmark' do
+  scenario 'page loads correctly' do
+    visit '/bookmarks'
+    expect(page).to have_css('body')
+  end
+
   scenario 'bookmarks page displays bookmakrs' do
     add_bookmarks
 
