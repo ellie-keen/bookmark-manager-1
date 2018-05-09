@@ -20,7 +20,7 @@ describe Link do
       expect(all_links).to include(bbc_link)
     end
     it "shouldn't add if URL isn't valid" do
-      expect { Link.add('https://www.didntstartwithhttp.com') }.to raise_error(RuntimeError)
+      expect(Link.add('https://www.didntstartwithhttp.com')).to eq false
     end
   end
 end

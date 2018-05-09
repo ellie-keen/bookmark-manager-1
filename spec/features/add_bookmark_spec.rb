@@ -21,11 +21,11 @@ feature 'Adding a bookmark' do
     expect(page).to have_content(bbc_link)
   end
 
-  xscenario "Doesn't submit if URL invalid" do
+  scenario "Doesn't submit if URL invalid" do
     visit '/bookmarks'
     click_on 'Add bookmark'
     fill_in 'url_field', with: 'ww.didntstartwithhttp.com'
     click_button 'Submit bookmark'
-    expect(page).to have_content('Add urldfs')
+    expect(page).to have_content('Error. Link invalid - not added to database.')
   end
 end

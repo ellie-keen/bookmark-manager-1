@@ -5,9 +5,9 @@
 </head>
 <body>
 
-  <p>
-    <a href="/add_bookmark">Add bookmark</a>
-  </p>
+  <p><%= @message %></p>
+
+  <p><a href="/add_bookmark">Add bookmark</a></p>
 
   <ul>
     <% @bookmarks.each do |bookmark| %>

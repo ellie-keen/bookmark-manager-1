@@ -17,7 +17,7 @@ class Link
   end
 
   def self.add(link)
-    valid_link_check(link)
+    return false unless valid_link_check(link)
     @connection.exec("INSERT INTO bookmarks VALUES(DEFAULT, '#{link}')")
   end
 
@@ -25,6 +25,6 @@ class Link
 
   def self.valid_link_check(link)
     uri = URI.parse(link)
-    raise 'URL not valid' if uri.scheme != 'http'
+    uri.scheme == 'http'
   end
 end
