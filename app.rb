@@ -1,10 +1,9 @@
 require 'sinatra/base'
-require './lib/bookmark.rb'
+require './lib/link.rb'
 
 class BookmarkManager < Sinatra::Base
   get '/bookmarks' do
-    p ENV
-    @bookmarks = Bookmark.all
+    @bookmarks = Link.all
     erb :index
   end
 
