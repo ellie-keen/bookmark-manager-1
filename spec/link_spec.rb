@@ -3,6 +3,8 @@ require 'link'
 describe Link do
   describe '#all' do
     it 'should return all bookmarks' do
+      add_bookmarks
+      
       links = Link.all
 
       expect(links).to include('http://makersacademy.com')
