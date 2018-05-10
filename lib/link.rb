@@ -11,9 +11,7 @@ class Link
   @connection = PG.connect( dbname: database)
 
   def self.all
-    list = []
-    @connection.exec("SELECT * FROM bookmarks;").each { |link| list << link['url'] }
-    list
+    @connection.exec("SELECT * FROM bookmarks;").map { |link| link['url'] }
   end
 
   def self.add(link)
@@ -24,7 +22,6 @@ class Link
   private
 
   def self.valid_link_check(link)
-    uri = URI.parse(link)
-    uri.scheme == 'http'
+    link =~ URI::regexp
   end
 end

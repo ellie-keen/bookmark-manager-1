@@ -24,7 +24,6 @@ class BookmarkManager < Sinatra::Base
       flash[:message] = 'Error. Link invalid - not added to database.'
     end
 
-
     redirect '/bookmarks'
   end
 

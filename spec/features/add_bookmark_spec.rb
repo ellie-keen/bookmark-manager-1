@@ -21,7 +21,7 @@ feature 'Adding a bookmark' do
     expect(page).to have_content(bbc_link)
   end
 
-  scenario "Doesn't submit if URL invalid" do
+  scenario "Gives the user an error if URL not valid" do
     visit '/bookmarks'
     click_on 'Add bookmark'
     fill_in 'url_field', with: 'ww.didntstartwithhttp.com'
