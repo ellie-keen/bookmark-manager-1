@@ -20,7 +20,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/add_to_database' do
-    unless Link.add(params[:url_field])
+    unless Link.add(params[:title_field], params[:url_field])
       flash[:message] = 'Error. Link invalid - not added to database.'
     end
 

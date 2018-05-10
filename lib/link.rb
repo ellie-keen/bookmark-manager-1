@@ -11,12 +11,12 @@ class Link
   @connection = PG.connect( dbname: database)
 
   def self.all
-    @connection.exec("SELECT * FROM bookmarks;").map { |link| link['url'] }
+    @connection.exec("SELECT * FROM bookmarks;").map { |link| { link['title'] => link['url'] } }
   end
 
-  def self.add(link)
+  def self.add(title, link)
     return false unless valid_link_check(link)
-    @connection.exec("INSERT INTO bookmarks VALUES(DEFAULT, '#{link}')")
+    @connection.exec("INSERT INTO bookmarks VALUES(DEFAULT, '#{link}', '#{title}')")
   end
 
   private
