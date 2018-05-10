@@ -11,9 +11,7 @@
 
   <ul>
     <% @bookmarks.each do |bookmark| %>
-      <% bookmark.each do |key, value| %>
-        <li><a href="<%= value %>"><%= key %></a></li>
-      <% end %>
+      <li><a href="<%= bookmark.url %>"><%= bookmark.title %></a></li>
     <% end %>
   </ul>
 

@@ -1,13 +1,13 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require './lib/link.rb'
+require './lib/bookmark.rb'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
   before do
-    @bookmarks = Link.all
+    @bookmarks = Bookmark.all
     @message = flash[:message]
   end
 
@@ -20,7 +20,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/add_to_database' do
-    unless Link.add(params[:title_field], params[:url_field])
+    unless Bookmark.add(params[:title_field], params[:url_field])
       flash[:message] = 'Error. Link invalid - not added to database.'
     end
 
