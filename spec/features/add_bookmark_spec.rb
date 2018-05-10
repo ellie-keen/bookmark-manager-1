@@ -20,7 +20,7 @@ feature 'Adding a bookmark' do
     fill_in 'title_field', with: bbc_name
     fill_in 'url_field', with: bbc_link
     click_button 'Submit bookmark'
-    expect(page).to have_content(bbc_link)
+    expect(page).to have_content(bbc_name)
   end
 
   scenario "Gives the user an error if URL not valid" do
