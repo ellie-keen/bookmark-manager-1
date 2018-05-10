@@ -21,7 +21,6 @@ describe Bookmark do
   end
 
   describe '#add' do
-
     it 'Should add a new bookmark' do
       new_bookmark = Bookmark.add(bbc_name, bbc_url)
       expect(Bookmark.all).to include new_bookmark
@@ -30,6 +29,9 @@ describe Bookmark do
     it "Shouldn't add if URL isn't valid" do
       expect(Bookmark.add('fake title', 'fake link')).to eq false
     end
+  end
+
+  describe '#==' do
 
     it 'Two bookmarks with the same content equal each other' do
       bookmark_1 = Bookmark.new(1, bbc_name, bbc_url)
@@ -38,5 +40,4 @@ describe Bookmark do
       expect(bookmark_1).to eq bookmark_2
     end
   end
-
 end
