@@ -33,6 +33,10 @@ class Bookmark
     Bookmark.new(result.first['id'], result.first['title'], result.first['url'])
   end
 
+  def self.delete(id)
+    @connection.exec("DELETE FROM bookmarks WHERE id '#{id}'")
+  end
+
   private
 
   def self.valid_link_check(url)

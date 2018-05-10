@@ -40,4 +40,13 @@ describe Bookmark do
       expect(bookmark_1).to eq bookmark_2
     end
   end
+
+  describe '#delete' do
+    it "Should remove bookmark" do
+      new_bookmark = Bookmark.add(bbc_name, bbc_url)
+      bookmark_id = Bookmark.all[0].id
+      Bookmark.delete(bookmark_id)
+      expect(Bookmark.all).not to_include(new_bookmark)
+    end
+  end
 end
