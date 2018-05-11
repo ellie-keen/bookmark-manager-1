@@ -33,8 +33,8 @@ class Bookmark
     Bookmark.new(result.first['id'], result.first['title'], result.first['url'])
   end
 
-  def self.delete(id)
-    @connection.exec("DELETE FROM bookmarks WHERE id '#{id}'")
+  def self.delete(url)
+    result = @connection.exec("DELETE FROM bookmarks WHERE url = '#{url}'")
   end
 
   private

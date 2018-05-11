@@ -31,22 +31,12 @@ describe Bookmark do
     end
   end
 
-  describe '#==' do
-
-    it 'Two bookmarks with the same content equal each other' do
-      bookmark_1 = Bookmark.new(1, bbc_name, bbc_url)
-      bookmark_2 = Bookmark.new(1, bbc_name, bbc_url)
-
-      expect(bookmark_1).to eq bookmark_2
-    end
-  end
-
   describe '#delete' do
-    it "Should remove bookmark" do
+    it "Should delete a bookmark" do
       new_bookmark = Bookmark.add(bbc_name, bbc_url)
-      bookmark_id = Bookmark.all[0].id
-      Bookmark.delete(bookmark_id)
-      expect(Bookmark.all).not to_include(new_bookmark)
+      Bookmark.delete(new_bookmark.url)
+      expect(Bookmark.all).not_to include new_bookmark
     end
   end
+
 end
